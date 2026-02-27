@@ -19,16 +19,20 @@ $config = $config.Replace('window.__AWS_REGION__     || "us-east-1"', "'$region'
 $tmp = "$env:TEMP\config_built.js"
 [IO.File]::WriteAllText($tmp, $config)
 
-# Upload assets
-aws s3 cp frontend\index.html "s3://$Bucket/index.html" --content-type "text/html; charset=utf-8" --cache-control "no-cache"
-aws s3 cp frontend\styles.css "s3://$Bucket/styles.css" --content-type "text/css; charset=utf-8" --cache-control "public, max-age=31536000"
-aws s3 cp $tmp "s3://$Bucket/js/config.js" --content-type "application/javascript" --cache-control "no-cache"
-aws s3 cp frontend\js\api.js     "s3://$Bucket/js/api.js"     --content-type "application/javascript" --cache-control "public, max-age=31536000"
-aws s3 cp frontend\js\auth.js    "s3://$Bucket/js/auth.js"    --content-type "application/javascript" --cache-control "public, max-age=31536000"
-aws s3 cp frontend\js\upload.js  "s3://$Bucket/js/upload.js"  --content-type "application/javascript" --cache-control "public, max-age=31536000"
-aws s3 cp frontend\js\gallery.js "s3://$Bucket/js/gallery.js" --content-type "application/javascript" --cache-control "public, max-age=31536000"
-aws s3 cp frontend\js\ui.js      "s3://$Bucket/js/ui.js"      --content-type "application/javascript" --cache-control "public, max-age=31536000"
-aws s3 cp frontend\js\app.js     "s3://$Bucket/js/app.js"     --content-type "application/javascript" --cache-control "public, max-age=31536000"
+# Upload all frontend assets — new files are included automatically
+$noCache = @("index.html", "config.js")
+Get-ChildItem -Path frontend -Recurse -File | foreach {
+    $key  = $_.FullName.Substring((Resolve-Path frontend).Path.Length + 1).Replace("\", "/")
+    $src  = if ($_.Name -eq "config.js") { $tmp } else { $_.FullName }
+    $ct   = switch ($_.Extension) {
+        ".html" { "text/html; charset=utf-8" }
+        ".css"  { "text/css; charset=utf-8" }
+        ".js"   { "application/javascript" }
+        default { "application/octet-stream" }
+    }
+    $cc = if ($noCache -contains $_.Name) { "no-cache" } else { "public, max-age=31536000" }
+    aws s3 cp $src "s3://$Bucket/$key" --content-type $ct --cache-control $cc
+}
 
 # Invalidate CloudFront
 aws cloudfront create-invalidation --distribution-id $DistId --paths "/*"
