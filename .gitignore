@@ -45,3 +45,4 @@ terraform.rc
 ######################################
 
 scratch.txt
+redeploy_frontend.ps1
