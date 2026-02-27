@@ -1,0 +1,1 @@
+.\scripts\deploy_frontend.ps1 -Bucket photoshare-frontend-b8f5869a -DistId E3IHXHSTRXFV1X
