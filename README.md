@@ -103,12 +103,12 @@ Open the `cloudfront_url` from the Terraform output. CloudFront may take a minut
 
 All endpoints are served by the Lambda Function URL.
 
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| `GET` | `/photos` | No | List all photos (newest first) |
-| `POST` | `/upload-url` | ✅ Bearer JWT | Get pre-signed S3 PUT URL + create DDB record |
-| `DELETE` | `/photos/{id}` | ✅ Bearer JWT | Delete photo (owner only) |
-| `GET` | `/health` | No | Health check |
+| Method   | Path           | Auth       | Description                                   |
+|----------|----------------|------------|-----------------------------------------------|
+| `GET`    | `/photos`      | No         | List all photos (newest first)                |
+| `POST`   | `/upload-url`  | Bearer JWT | Get pre-signed S3 PUT URL + create DDB record |
+| `DELETE` | `/photos/{id}` | Bearer JWT | Delete photo (owner only)                     |
+| `GET`    | `/health`      | No         | Health check                                  |
 
 ### Upload flow
 
@@ -148,14 +148,14 @@ photoshare/
 
 ## Customization
 
-| What | Where |
-|---|---|
-| Change AWS region | `terraform/variables.tf` → `aws_region` |
-| Change project name/prefix | `terraform/variables.tf` → `project_name` |
-| Add image resizing | Add a second Lambda triggered by S3 events |
-| Add a custom domain | Add `aws_cloudfront_distribution` aliases + ACM cert in `terraform/main.tf` |
-| Add likes/comments | Add a `comments` DynamoDB table + new Lambda routes |
-| Restrict signup to allowlist | Add Cognito pre-signup Lambda trigger |
+| What                         | Where                                                                       |
+|------------------------------|-----------------------------------------------------------------------------|
+| Change AWS region            | `terraform/variables.tf` → `aws_region`                                     |
+| Change project name/prefix   | `terraform/variables.tf` → `project_name`                                   |
+| Add image resizing           | Add a second Lambda triggered by S3 events                                  |
+| Add a custom domain          | Add `aws_cloudfront_distribution` aliases + ACM cert in `terraform/main.tf` |
+| Add likes/comments           | Add a `comments` DynamoDB table + new Lambda routes                         |
+| Restrict signup to allowlist | Add Cognito pre-signup Lambda trigger                                       |
 
 ---
 

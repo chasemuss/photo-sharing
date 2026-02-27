@@ -29,9 +29,9 @@ Base URL is the API Gateway `$default` stage invoke URL (output: `api_url`).
 
 **Query params:**
 
-| Param | Default | Max | Description |
-|---|---|---|---|
-| `limit` | `50` | `100` | Number of photos to return |
+| Param   | Default | Max   | Description                |
+|---------|---------|-------|----------------------------|
+| `limit` | `50`    | `100` | Number of photos to return |
 
 **Response `200`:**
 ```json
@@ -84,9 +84,9 @@ Photos are sorted **newest-first** via the `ByUploadDate` DynamoDB GSI.
 
 **Errors:**
 
-| Code | Reason |
-|---|---|
-| `401` | Missing or invalid JWT |
+| Code  | Reason                                 |
+|-------|----------------------------------------|
+| `401` | Missing or invalid JWT                 |
 | `400` | Invalid JSON or non-image content type |
 
 ---
@@ -110,13 +110,13 @@ Photos are sorted **newest-first** via the `ByUploadDate` DynamoDB GSI.
 
 **Errors:**
 
-| Code | Reason |
-|---|---|
+| Code  | Reason                 |
+|-------|------------------------|
 | `401` | Missing or invalid JWT |
-| `400` | Missing `photo_id` |
-| `404` | Photo not found |
-| `403` | Not the owner |
-| `500` | DynamoDB error |
+| `400` | Missing `photo_id`     |
+| `404` | Photo not found        |
+| `403` | Not the owner          |
+| `500` | DynamoDB error         |
 
 ---
 

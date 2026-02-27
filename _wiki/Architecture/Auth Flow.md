@@ -11,18 +11,18 @@ tags: [auth, cognito, jwt, security]
 ## Cognito User Pool Config
 
 | Setting | Value |
-|---|---|
-| Pool name | `photoshare-users` |
-| Auto-verified attributes | `email` |
-| Auth flows | `USER_PASSWORD_AUTH`, `USER_SRP_AUTH`, `REFRESH_TOKEN_AUTH` |
-| Access token validity | **1 hour** |
-| ID token validity | **1 hour** |
-| Refresh token validity | **30 days** |
-| Minimum password length | 8 |
-| Required: lowercase | ✅ |
-| Required: uppercase | ✅ |
-| Required: numbers | ✅ |
-| Required: symbols | ❌ |
+|--------------------------|-------------------------------------------------------------|
+| Pool name                | `photoshare-users`                                          |
+| Auto-verified attributes | `email`                                                     |
+| Auth flows               | `USER_PASSWORD_AUTH`, `USER_SRP_AUTH`, `REFRESH_TOKEN_AUTH` |
+| Access token validity    | **1 hour**                                                  |
+| ID token validity        | **1 hour**                                                  |
+| Refresh token validity   | **30 days**                                                 |
+| Minimum password length  | 8                                                           |
+| Required: lowercase      | Yes                                                         |
+| Required: uppercase      | Yes                                                         |
+| Required: numbers        | Yes                                                         |
+| Required: symbols        | No                                                          |
 
 ---
 
@@ -104,12 +104,12 @@ def get_user_from_event(event: dict) -> dict | None:
 
 ## Protected Endpoints
 
-| Endpoint | Auth required |
-|---|---|
-| `GET /health` | ❌ |
-| `GET /photos` | ❌ |
-| `POST /upload-url` | ✅ Bearer JWT |
-| `DELETE /photos/{id}` | ✅ Bearer JWT (owner only) |
+| Endpoint              | Auth required           |
+|-----------------------|-------------------------|
+| `GET /health`         | No                      |
+| `GET /photos`         | No                      |
+| `POST /upload-url`    | Bearer JWT              |
+| `DELETE /photos/{id}` | Bearer JWT (owner only) |
 
 ---
 
