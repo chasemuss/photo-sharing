@@ -64,8 +64,9 @@ async function doUpload() {
       content_type: STATE.selectedFile.type,
       caption,
     });
-    if (!res.ok) throw new Error((await res.json()).error || "Upload failed");
-    const { upload_url } = await res.json();
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Upload failed");
+    const { upload_url } = data;
 
     // Step 2 — stream the file directly to S3
     document.getElementById("progress-wrap").style.display = "";
