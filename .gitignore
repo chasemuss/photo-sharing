@@ -40,6 +40,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Terraform-generated Lambda package (built locally, don't commit)
+terraform/lambda.zip
+
 ######################################
 #   SCRATCH PAPER
 ######################################
