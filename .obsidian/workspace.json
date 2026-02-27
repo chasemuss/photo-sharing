@@ -13,12 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "_wiki/Home.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Home"
             }
           }
         ]
@@ -53,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Ops/Deployment Guide|",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -88,39 +89,6 @@
         "id": "3c207e5ea6535959",
         "type": "tabs",
         "children": [
-          {
-            "id": "ed6a99b1119115f2",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "README.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for README"
-            }
-          },
-          {
-            "id": "22047ebd4633be87",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "README.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from README"
-            }
-          },
           {
             "id": "0955650169bdb8c7",
             "type": "leaf",
@@ -165,12 +133,12 @@
               "title": "Outline of README"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,6 +151,39 @@
       "bases:Create new base": false
     }
   },
-  "active": "c6eb69cb870ae7a2",
-  "lastOpenFiles": []
+  "active": "8a49633de4632ae2",
+  "lastOpenFiles": [
+    "_wiki/Frontend/Frontend Index.md",
+    "_wiki/Architecture/System Overview.md",
+    "_wiki/Home.md",
+    "_wiki/Frontend/auth.js.md",
+    "_wiki/Operations/Customization.md",
+    "_wiki/Operations/Tear Down.md",
+    "_wiki/Operations/Deployment Guide.md",
+    "_wiki/Infrastructure/Infrastructure Index.md",
+    "_wiki/Infrastructure/Cognito.md",
+    "_wiki/Infrastructure/CloudFront.md",
+    "_wiki/Lambda/Lambda Index.md",
+    "_wiki/Infrastructure/IAM.md",
+    "_wiki/Infrastructure/API Gateway.md",
+    "_wiki/Infrastructure/API Gateway 1.md",
+    "_wiki/Infrastructure/S3.md",
+    "_wiki/Lambda/shared.md",
+    "_wiki/Lambda/upload_url.md",
+    "_wiki/Lambda/health.md",
+    "_wiki/Lambda/get_photos.md",
+    "_wiki/Infrastructure/DynamoDB.md",
+    "_wiki/Lambda/delete_photo.md",
+    "_wiki/Architecture/Auth Flow.md",
+    "_wiki/Architecture/API Reference.md",
+    "_wiki/Operations",
+    "_wiki/Frontend",
+    "_wiki/Lambda",
+    "_wiki/Untitled.md",
+    "_wiki/Infrastructure",
+    "_wiki/Architecture",
+    "Infrastructure/Infrastructure Index.md",
+    "Infrastructure",
+    "README.md"
+  ]
 }
